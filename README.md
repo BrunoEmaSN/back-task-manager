@@ -3,6 +3,7 @@
 #### In order to build the backend
 
 Have an SMTP account and provider. Ex: Sendgrid
+
 Migrate the database
 
     php artisan migrate --seeds
