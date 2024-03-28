@@ -19,7 +19,7 @@ class ForgotPasswordService
       'subject' => 'Forgot your password'
     ];
 
-    $email_template = "email-template.forgot-password";
+    $email_template = "email-template.reset-password";
 
     SendMail::dispatch($data, $email_template)->onQueue('mails');
 

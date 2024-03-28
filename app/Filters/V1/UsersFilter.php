@@ -8,7 +8,7 @@ class UsersFilter extends ApiFilter
 {
   protected $safeParms = [
     'name' => ['like'],
-    'type' => ['eq'],
+    'rol' => ['eq'],
     'email' => ['like'],
   ];
 }

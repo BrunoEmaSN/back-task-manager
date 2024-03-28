@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\Task;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GetTasksRequest extends FormRequest
@@ -13,7 +13,7 @@ class GetTasksRequest extends FormRequest
     public function authorize(): bool
     {
         $user = $this->user();
-        return $user != null && $user->tokenCan(PERMISSION::GET_TASKS->value);
+        return $user != null && $user->tokenCan(PERMISSIONS::GET_TASKS->value);
     }
 
     /**

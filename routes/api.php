@@ -24,5 +24,5 @@ Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], f
     Route::post('download', [FileController::class, 'download'])->middleware('auth:sanctum');
     Route::delete('destroy', [FileController::class, 'destroy'])->middleware('auth:sanctum');
 
-    Route::post('resports', [ReportController::class, 'tasks'])->middleware('auth:sanctum');
+    Route::post('resports', [ReportController::class, 'task_report'])->middleware('auth:sanctum');
 });

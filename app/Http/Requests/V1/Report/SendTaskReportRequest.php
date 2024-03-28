@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\Report;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use App\Http\Requests\V1\Task\GetTasksRequest;
 
 class SendTaskReportRequest extends GetTasksRequest
@@ -13,7 +13,7 @@ class SendTaskReportRequest extends GetTasksRequest
     public function authorize(): bool
     {
         $user = $this->user();
-        return $user != null && $user->tokenCan(PERMISSION::SEND_REPORT->value);
+        return $user != null && $user->tokenCan(PERMISSIONS::SEND_REPORT->value);
     }
 
     /**

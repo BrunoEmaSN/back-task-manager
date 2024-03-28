@@ -30,9 +30,9 @@ class SendReportPdf implements ShouldQueue
         Mail::send($this->email_template, [
             'date' => $now,
         ], function ($message) use ($now) {
-            $message->to($this->data->email);
-            $message->subject($this->data->subject);
-            $message->attachData($this->data->pdf->output(), $now . 'report.pdf');
+            $message->to($this->data['email']);
+            $message->subject($this->data['subject']);
+            $message->attachData($this->data['pdf']->output(), $now . 'report.pdf');
         });
     }
 }

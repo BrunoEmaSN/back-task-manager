@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\File;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use Illuminate\Foundation\Http\FormRequest;
 
 class DownloadFileRequest extends FormRequest
@@ -13,7 +13,7 @@ class DownloadFileRequest extends FormRequest
     public function authorize(): bool
     {
         $user = $this->user();
-        return $user != null && $user->tokenCan(PERMISSION::DOWNLOAD_FILE->value);
+        return $user != null && $user->tokenCan(PERMISSIONS::DOWNLOAD_FILE->value);
     }
 
     /**

@@ -49,7 +49,12 @@ class ResetPasswordService
     $request->validate([
       'token' => ['required'],
       'password' => ['required'],
+      'repeat_password' => ['required']
     ]);
+
+    if ($request->password != $request->repeat_password) {
+      return false;
+    }
 
     $reset_password = PasswordResetTokens::where('token', $request->token)->first();
 
@@ -80,6 +85,6 @@ class ResetPasswordService
 
     $status = $reset_password->where('token', $request->token)->delete();
 
-    return response()->json(['status' => $status]);
+    return $status;
   }
 }

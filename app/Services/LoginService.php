@@ -60,7 +60,10 @@ class LoginService
     }
 
     return response()->json([
-      'access_token' => $auth_token
+      'access_token' => $auth_token,
+      'rol' => $user->rol,
+      'name' => $user->name,
+      'email' => $user->email
     ]);
   }
 }

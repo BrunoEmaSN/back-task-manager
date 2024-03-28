@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\Task;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use App\Enums\ROL;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,7 +18,7 @@ class DeleteTaskRequest extends FormRequest
             return false;
         }
         $is_superadmin = $user->rol == ROL::SUPERADMIN->value;
-        return $user->tokenCan(PERMISSION::DELETE_TASK->value) && $is_superadmin;
+        return $user->tokenCan(PERMISSIONS::DELETE_TASK->value) && $is_superadmin;
     }
 
     /**

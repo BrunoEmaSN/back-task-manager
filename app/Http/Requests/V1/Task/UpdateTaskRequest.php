@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\Task;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -14,7 +14,7 @@ class UpdateTaskRequest extends FormRequest
     public function authorize(): bool
     {
         $user = $this->user();
-        return $user != null && $user->tokenCan(PERMISSION::UPDATE_TASK->value);
+        return $user != null && $user->tokenCan(PERMISSIONS::UPDATE_TASK->value);
     }
 
     /**

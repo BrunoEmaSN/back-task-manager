@@ -1,3 +1,6 @@
+<?php
+Log::info($token);
+?>
 <!doctype html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml"
     xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -127,7 +130,7 @@
         <div class="flex">
             <div class="center">
                 <div class="button_container">
-                    <a href="{{ $token }}" class="button_text">
+                    <a href="{{ route('reset_password_view', $token) }}" class="button_text">
                         Reset Password
                     </a>
                 </div>

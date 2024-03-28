@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\File;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use App\Enums\ROL;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,7 +19,7 @@ class DeleteFileRequest extends FormRequest
         }
         $is_superadmin = $user->rol == ROL::SUPERADMIN->value;
         $is_owner = $user->id = $this->user_id;
-        return $user->tokenCan(PERMISSION::DELETE_FILE->value) && ($is_superadmin || $is_owner);
+        return $user->tokenCan(PERMISSIONS::DELETE_FILE->value) && ($is_superadmin || $is_owner);
     }
 
     /**

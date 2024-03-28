@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
 class SendMail implements ShouldQueue
@@ -25,13 +26,13 @@ class SendMail implements ShouldQueue
      */
     public function handle(): void
     {
-        Mail::send($this->email_template, [
-            'token' => $this->data->token,
-            'email' => $this->data->email,
-            'content' => $this->data->content
-        ], function ($message) {
-            $message->to($this->data->email);
-            $message->subject($this->data->subject);
+        $data = [
+            'token' => $this->data['token'],
+            'email' => $this->data['email'],
+        ];
+        Mail::send($this->email_template, $data, function ($message) {
+            $message->to($this->data['email']);
+            $message->subject($this->data['subject']);
         });
     }
 }

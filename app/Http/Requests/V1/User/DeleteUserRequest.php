@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\User;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use App\Enums\ROL;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,7 +18,7 @@ class DeleteUserRequest extends FormRequest
             return false;
         }
         $is_superadmin = $user->rol == ROL::SUPERADMIN->value;
-        return $user->tokenCan(PERMISSION::GET_USERS->value) && $is_superadmin;
+        return $user->tokenCan(PERMISSIONS::GET_USERS->value) && $is_superadmin;
     }
 
     /**

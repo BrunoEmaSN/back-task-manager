@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\Comment;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreCommentRequest extends FormRequest
@@ -13,7 +13,7 @@ class StoreCommentRequest extends FormRequest
     public function authorize(): bool
     {
         $user = $this->user();
-        return $user != null && $user->tokenCan(PERMISSION::CREATE_COMMENT->value);
+        return $user != null && $user->tokenCan(PERMISSIONS::CREATE_COMMENT->value);
     }
 
     /**

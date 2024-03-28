@@ -7,10 +7,10 @@ use App\Filters\ApiFilter;
 class TasksFilter extends ApiFilter
 {
   protected $safeParms = [
-    'title' => ['eq'],
+    'title' => ['like'],
     'user_id' => ['eq'],
     'status' => ['eq'],
-    'start_date' => ['eq', 'lt', 'gt'],
-    'end_date' => ['eq', 'lt', 'gt']
+    'start_date' => ['eq', 'lt', 'gt', 'gte'],
+    'end_date' => ['eq', 'lt', 'gt', 'lte']
   ];
 }

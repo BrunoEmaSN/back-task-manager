@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\V1\Comment;
 
-use App\Enums\PERMISSION;
+use App\Enums\PERMISSIONS;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateCommentRequest extends FormRequest
@@ -18,7 +18,7 @@ class UpdateCommentRequest extends FormRequest
         }
 
         $is_owner = $user->id == $this->user_id;
-        $has_access = $user->tokenCan(PERMISSION::UPDATE_COMMENT->value);
+        $has_access = $user->tokenCan(PERMISSIONS::UPDATE_COMMENT->value);
 
         return $has_access && $is_owner;
     }

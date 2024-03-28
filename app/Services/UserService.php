@@ -8,6 +8,7 @@ use App\Http\Requests\V1\User\StoreUserRequest;
 use App\Http\Resources\V1\UserResource;
 use App\Jobs\SendMail;
 use App\Models\User;
+use Illuminate\Support\Facades\Log;
 
 class UserService
 {
@@ -40,7 +41,7 @@ class UserService
       'subject' => 'Reset password'
     ];
 
-    $email_template = "email-template.forgot-password";
+    $email_template = "email-template.reset-password";
 
     SendMail::dispatch($data, $email_template)->onQueue('mails');
 

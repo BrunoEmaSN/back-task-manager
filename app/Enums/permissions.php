@@ -2,7 +2,7 @@
 
 namespace App\Enums;
 
-enum PERMISSION: string
+enum PERMISSIONS: string
 {
   case GET_USERS = 'get.users';
   case GET_TASKS = 'get.tasks';
