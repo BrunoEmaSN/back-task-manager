@@ -61,6 +61,7 @@ class LoginService
 
     return response()->json([
       'access_token' => $auth_token,
+      'id' => $user->id,
       'rol' => $user->rol,
       'name' => $user->name,
       'email' => $user->email
